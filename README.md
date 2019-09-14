@@ -32,7 +32,7 @@ qr/unipay二维码文件夹只需配置云闪付商家收款码
 - 支付宝内打开该web应用，实例：`https://ds.alipay.com/?from=pc&appId=09999988&actionType=toCard&sourceId=bill&cardNo=银行卡卡号&bankAccount=持卡人姓名&money=金额&amount=金额&bankMark=银行缩写简写&bankName=银行完整名称&tdsourcetag=s_pctim_aiomsg` url中文记得需经过encode编码
 - v1.8增加需要替换的地方：
 ```
-alipay.html中你的访问域名前缀 替换ePay.exrick.cn
+alipay.html中你的访问域名前缀 替换5epay.cn
 openAlipay.html中的银行卡转账信息
 ```
 ### v1.7支付宝转账码原理
