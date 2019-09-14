@@ -15,7 +15,6 @@ epay个人免签收款支付系统 完全免费 资金直接到达本人账号 �
 - 借助支付宝“扫码点单”小程序，只需开通商家收款码即可开通
 - 备注号对应桌号
 - 详细使用说明见word图文文档
-
 ### v1.9新增支付宝一键红包支付模式以及云闪付说明
 - 红包模式正规个人业务没必要使用，量大怕风控者用的
 - 需先执行加好友，支付宝需在设置-隐私-常用隐私设置中关闭加好友需要验证，实例：`alipays://platformapi/startapp?appId=20000186&actionType=addfriend&userId=支付宝userId&loginId=支付宝账号&source=by_f_v&alert=true`
