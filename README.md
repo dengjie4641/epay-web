@@ -5,6 +5,7 @@
 epay个人免签收款支付系统 完全免费 资金直接到达本人账号 支持 支付宝 微信 QQ 云闪付 无需备案 无需签约 无需挂机监控APP 无需插件 无需第三方支付SDK 无需营业执照身份证 只需收款码 搞定支付流程 
 现已支持移动端支付  体验链接地址：[http://5epay.cn][http://5epay.cn]
 
+
 ### 支付宝官方获取userId方式
 - 支付宝内打开链接：`https://render.alipay.com/p/f/fd-ixpo7iia/index.html`
 - 或使用支付宝扫描该文件夹根目录下中的二维码
