@@ -5,7 +5,6 @@ import cn.epay.bean.dto.Result;
 import cn.epay.common.enums.PayNoticeEnum;
 import cn.epay.common.enums.PayStateEnum;
 import cn.epay.common.enums.PaymentEnum;
-import cn.epay.constant.Constant;
 import cn.epay.utils.DateUtils;
 import cn.epay.utils.EmailUtils;
 import cn.epay.utils.StringUtils;

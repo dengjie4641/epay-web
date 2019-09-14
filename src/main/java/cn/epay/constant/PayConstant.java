@@ -7,7 +7,7 @@ package cn.epay.constant;
  * @Date: 2019/8/27 09:17
  * @version: V1.0
  **/
-public class Constant {
+public class PayConstant {
 
     /**
      * 系统关闭key
@@ -24,7 +24,6 @@ public class Constant {
 
     /**系统关闭原因**/
     public static final String CLOSE_REASON="PAY_CLOSE_REASON";
-
 
     /**
      * 支付宝网关

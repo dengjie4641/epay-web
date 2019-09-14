@@ -6,7 +6,7 @@ import cn.epay.bean.Pay;
 import cn.epay.bean.dto.Count;
 import cn.epay.common.enums.PayStateEnum;
 import cn.epay.common.enums.PaymentEnum;
-import cn.epay.constant.Constant;
+import cn.epay.constant.PayConstant;
 import cn.epay.service.BaseService;
 import cn.epay.utils.*;
 import cn.epay.dao.PayDao;
@@ -178,13 +178,13 @@ public class PayServiceImpl extends BaseService implements PayService {
     @Override
     public Result<Object> queryPayState(String outTradeNo) {
         try{
-            AlipayClient alipayClient = new DefaultAlipayClient(Constant.GATEWAY,
-                    Constant.appId,
-                    Constant.privateKey,
-                    Constant.FORMAT,
-                    Constant.CHARSET,
-                    Constant.publicKey,
-                    Constant.SIGNTYPE);
+            AlipayClient alipayClient = new DefaultAlipayClient(PayConstant.GATEWAY,
+                    PayConstant.appId,
+                    PayConstant.privateKey,
+                    PayConstant.FORMAT,
+                    PayConstant.CHARSET,
+                    PayConstant.publicKey,
+                    PayConstant.SIGNTYPE);
             AlipayTradeQueryRequest request = new AlipayTradeQueryRequest();
             request.setBizContent("{\"out_trade_no\":\""+outTradeNo+"\" }");
             AlipayTradeQueryResponse response = alipayClient.execute(request);

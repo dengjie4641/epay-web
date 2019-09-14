@@ -3,7 +3,7 @@ package cn.epay.controller;
 import cn.epay.bean.Pay;
 import cn.epay.bean.dto.Result;
 import cn.epay.common.enums.PaymentEnum;
-import cn.epay.constant.Constant;
+import cn.epay.constant.PayConstant;
 import cn.epay.service.BaseService;
 import cn.epay.service.PayService;
 import cn.epay.utils.*;
@@ -23,7 +23,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.constraints.NotEmpty;
 import java.math.BigDecimal;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
@@ -99,14 +98,14 @@ public class WeChatPayController {
         ValueOperations<String, String> valueops = redisTemplate.opsForValue();
 
         // 判断是否开启支付
-        String isOpen = valueops.get(Constant.CLOSE_KEY);
-        String allReason = valueops.get(Constant.CLOSE_REASON);
+        String isOpen = valueops.get(PayConstant.CLOSE_KEY);
+        String allReason = valueops.get(PayConstant.CLOSE_REASON);
 
         // 判断是否开启当面付
-        String isOpenDMF = valueops.get(Constant.CLOSE_DMF_KEY);
-        String dmfReason = valueops.get(Constant.CLOSE_DMF_REASON);
+        String isOpenDMF = valueops.get(PayConstant.CLOSE_DMF_KEY);
+        String dmfReason = valueops.get(PayConstant.CLOSE_DMF_REASON);
 
-        Long expireOpen = redisTemplate.getExpire(Constant.CLOSE_KEY, TimeUnit.HOURS);
+        Long expireOpen = redisTemplate.getExpire(PayConstant.CLOSE_KEY, TimeUnit.HOURS);
 
         String msg = "";
         if (StringUtils.isNotBlank(isOpen)) {

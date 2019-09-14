@@ -1,12 +1,10 @@
 package cn.epay.controller;
 
 import cn.epay.bean.Pay;
-import cn.epay.bean.dto.Count;
 import cn.epay.bean.dto.DataTablesResult;
 import cn.epay.bean.dto.Result;
 import cn.epay.common.enums.PayStateEnum;
-import cn.epay.constant.Constant;
-import cn.epay.dao.PayDao;
+import cn.epay.constant.PayConstant;
 import cn.epay.service.AuditPayService;
 import cn.epay.service.PayService;
 import cn.epay.utils.*;
@@ -15,22 +13,16 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-import java.math.BigDecimal;
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @Description //支付模块管理类
@@ -317,18 +309,18 @@ public class PayController {
         }
         try {
             if (all) {
-                redisTemplate.delete(Constant.CLOSE_KEY);
+                redisTemplate.delete(PayConstant.CLOSE_KEY);
             } else {
-                vops.set(Constant.CLOSE_KEY, "CLOSED");
+                vops.set(PayConstant.CLOSE_KEY, "CLOSED");
                 // 设置原因
-                vops.set(Constant.CLOSE_REASON, allReason);
+                vops.set(PayConstant.CLOSE_REASON, allReason);
             }
             if (dmf) {
-                redisTemplate.delete(Constant.CLOSE_DMF_KEY);
+                redisTemplate.delete(PayConstant.CLOSE_DMF_KEY);
             } else {
-                vops.set(Constant.CLOSE_DMF_KEY, "CLOSED");
+                vops.set(PayConstant.CLOSE_DMF_KEY, "CLOSED");
                 // 设置原因
-                vops.set(Constant.CLOSE_DMF_REASON, dmfReason);
+                vops.set(PayConstant.CLOSE_DMF_REASON, dmfReason);
             }
         } catch (Exception e) {
             return ResultUtil.error("处理数据出错");
@@ -354,20 +346,20 @@ public class PayController {
             return  ResultUtil.error("无效的Token或链接");
         }
         Map<String, Object> map = new HashMap<>(16);
-        String all = redisTemplate.opsForValue().get(Constant.CLOSE_KEY);
+        String all = redisTemplate.opsForValue().get(PayConstant.CLOSE_KEY);
         if (StringUtils.isBlank(all)) {
             map.put("all", true);
         } else {
             map.put("all", false);
         }
-        String dmf = redisTemplate.opsForValue().get(Constant.CLOSE_DMF_KEY);
+        String dmf = redisTemplate.opsForValue().get(PayConstant.CLOSE_DMF_KEY);
         if (StringUtils.isBlank(dmf)) {
             map.put("dmf", true);
         } else {
             map.put("dmf", false);
         }
-        map.put("allReason", redisTemplate.opsForValue().get(Constant.CLOSE_REASON));
-        map.put("dmfReason", redisTemplate.opsForValue().get(Constant.CLOSE_DMF_REASON));
+        map.put("allReason", redisTemplate.opsForValue().get(PayConstant.CLOSE_REASON));
+        map.put("dmfReason", redisTemplate.opsForValue().get(PayConstant.CLOSE_DMF_REASON));
         return  ResultUtil.success(map);
     }
 
