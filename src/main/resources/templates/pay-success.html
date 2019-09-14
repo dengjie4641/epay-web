@@ -1,0 +1,60 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <title>操作成功</title>
+        <meta name="description" content="ePay个人收款支付系统 无需签约 无需第三方SDK 完全免费">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .main{
+                margin-top: 40px;
+            }
+        </style>
+    </head>
+
+    <body>
+            <div class="main">
+                <table align="center" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td height="20"></td>
+                    </tr>
+                    <!-- content -->
+                    <tr>
+                        <td style="font-size:13px; color:#7f8c8d; line-height:26px;" align="center">
+                            <img src="https://i.loli.net/2018/07/18/5b4f12fb00713.png" width="50">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size:13px; color:#7f8c8d; line-height:26px;" align="center">
+                            恭喜您，支付成功！
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size:13px; color:#7f8c8d; line-height:26px;" align="center">
+                            昵称：<span th:text="${nickName}"></span>，
+                            支付金额：<span th:text="${money}"></span>，
+                            支付方式：<span th:text="${payType}"></span>，
+                            留言：<span th:text="${info}"></span>，
+                            支付时间：<span th:text="${time}"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size:13px; color:#7f8c8d; line-height:26px;" align="center">
+                            十分感谢您的捐赠，您还可以到ePay官网查看到您的捐赠数据：
+                            <a href="www.5epay.cn/thanks">查看捐赠名单</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size:13px; color:#7f8c8d; line-height:26px;" align="center">
+                            源码及当面付申请教程下载地址（请遵循GPL开源协议）：
+                            <font color="red">
+                            链接：https://pan.baidu.com/s/1xcuoEIHIwfeZ7whbsoWCVw
+                            提取码：f91u
+                            复制这段内容后打开百度网盘手机App，操作更方便哦
+                            </font>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+    </body>
+</html>

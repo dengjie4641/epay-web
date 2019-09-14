@@ -1,0 +1,96 @@
+<!doctype html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<div th:include="header"/>
+<style>
+    p{
+        margin-bottom: 10px;
+    }
+    .payment-detail {
+        text-align: start;
+        font-size: 14px;
+        color: #999;
+    }
+</style>
+    <body data-spy="scroll" data-target=".navbar-collapse" style="background:#f1f2f7">
+
+        <div class="culmn">
+            <!--Home page style-->
+            <div th:include="nav"/>
+
+            <!--Featured Section-->
+            <section id="features" class="features">
+                <div class="container">
+                    <div class="row">
+                        <div class="main_features p-top-100">
+                            
+                            <div class="gray-box">
+                                <div class="title">
+                                  <h2>支付宝当面付开通说明</h2>
+                                </div>
+                                <!--内容-->
+                                <div style="padding: 20px;min-height:35vw">
+                                    <h5>申请开通流程</h5>
+                                    <p class="payment-detail">1.进入ePay支付页面捐赠成功后您将获取到开通教程，开通无需营业执照，个人可申请签约 <a href="/pay" target="_blank">点我立即获取教程</a>
+                                    </p>
+                                    <p class="payment-detail">2.收到开通成功邮件，
+                                        登录 <a href="https://mrchportalweb.alipay.com/product/productManage.htm" target="_blank">支付宝商家中心-产品签约管理</a> 中查看，
+                                        查看官方当面付接口文档进行下一步开发即可</p>
+                                    <img src="assets/images/dmf0.png" style="max-width: 500px;display: block;margin: 0 auto;margin-bottom: 10px"/>
+
+                                    <h5>开发教程</h5>
+                                    <p class="payment-detail">具体请查看 <a href="https://docs.open.alipay.com/194/106078/" target="_blank">支付宝当面付产品官方文档 </a>，
+                                        有非常详细的接口说明和示例，向您发送的ePay源码中也包含详细文档和示例，以下仅简要说明所需的两个步骤：
+                                    <p class="payment-detail">1.使用 <a href="https://docs.open.alipay.com/api_1/alipay.trade.precreate" target="_blank">alipay.trade.precreate(统一收单线下交易预创建) </a>
+                                    接口获取每笔订单收款二维码</p>
+                                    <p class="payment-detail">2.使用 <a href="https://docs.open.alipay.com/api_1/alipay.trade.query" target="_blank">alipay.trade.query(统一收单线下交易查询) </a>
+                                        接口查询每笔订单支付结果</p>
+
+                                    <h5>常见问题</h5>
+                                    <h2>开通需要提供什么资料？</h2><br>
+                                    <p class="payment-detail">申请时仅需填写你的姓名、手机号、邮件等信息，可无需营业执照</p>
+                                    <h2>支付后开通成功需要多久？</h2><br>
+                                    <p class="payment-detail">08:00~20:00时间段申请预计3小时内办理成功（法定节假日顺延），由于需支付宝客服人工审核，请耐心等待！</p>
+                                    <h2>任何产业都能开通接入吗？</h2><br>
+                                    <p class="payment-detail">您将开通的是支付宝官方接口，拥有成熟的风控系统，违反国家法律法规的业务请自觉不要申请！</p>
+                                    <h2>收款有何限制？</h2><br>
+                                    <p class="payment-detail">1、签约时未提供同名营业执照（营业执照主体与支付宝账户认证主体同名），收款将会受到一定的限制，具体限制规则为交易限额：单笔收款≤1000，单日收款≤5W，不区分借记或贷记渠道。
+                                        2、签约时提供了同名营业执照，或者签约后补充了同名营业执照，收款不受限额。
+                                        <a href="https://cshall.alipay.com/enterprise/knowledgeDetail.htm?knowledgeId=201602191944" target="_blank">详见官方说明</a>
+                                    </p>
+                                    <h2>费率如何计算？</h2><br>
+                                    <p class="payment-detail">不提供营业执照基础版目前每笔交易为0.38%，全部由支付宝官方收取，若提供营业执照不限额版费率为0.6%，实际以签约时支付宝产品协议为准。</p>
+                                    <h2>开通后有效期为多久？</h2><br>
+                                    <p class="payment-detail">长期有效，自动续约。
+                                        可进入 <a href="https://mrchportalweb.alipay.com/product/productManage.htm" target="_blank">产品签约管理</a> 中查看</p>
+                                    <h2>是否有风控？</h2><br>
+                                    <p class="payment-detail">您将开通的是支付宝官方接口，拥有成熟的风控系统，请避免大额频繁异常交易！</p>
+                                    <input type="text" class="main-btn mybtn" style="display: block;margin: 0 auto;width: 150px;margin-top:5vh;text-align: center;cursor: pointer;" value="立即获取开通教程" onclick="submit()">
+                                </div>
+
+                              </div>
+
+                        </div>
+                    </div><!-- End off row -->
+                </div><!-- End off container -->
+            </section><!-- End off Featured Section-->
+
+            <!-- scroll up-->
+            <div class="scrollup">
+                <a href="#"><i class="fa fa-chevron-up"></i></a>
+            </div><!-- End off scroll up -->
+            
+            
+            <div th:include="footer"/>
+
+        </div>
+
+    </body>
+    <script>
+        $("[data-toggle='popover']").popover();
+
+        function submit(){
+            window.location.href="/pay";
+        }
+       
+    </script>
+</html>

@@ -1,0 +1,409 @@
+<!doctype html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org" >
+    <div th:include="indexHeader" />
+
+    <body data-spy="scroll" data-target=".navbar-collapse">
+
+        <!--<div th:include="loading" />-->
+
+        <div class="culmn">
+            <!--Navigation-->
+            <div th:include="nav" />
+
+            <section id="home" class="home">
+                <div class="container">
+                    <div class="row">
+                        <div class="main_home">
+                            <div class="col-md-6">
+                                <div class="home_text">
+                                    <h2 class="text-white">
+                                        ePay个人收款支付系统
+                                        <span style="font-size: 30px;color: #fff">v1.0</span></h2>
+                                </div>
+
+                                <div class="home_btns m-top-40">
+                                    <a id="mobile" style="display: none" href="pay" class="btn btn-danger m-top-20">立即体验</a>
+                                    <a id="pc" style="display: none" href="pay" class="btn btn-danger m-top-20" title="手机扫码体验支付" data-container="body" data-toggle="popover" data-placement="bottom"
+                                       data-html="true" data-content="<img src='assets/images/mobiletest.png' width='150'>" data-trigger="hover">立即体验</a>
+                                    <a href="https://itmaker.vip/epay" target="_blank" class="btn btn-primary m-top-20">开发教程</a>
+                                </div>
+
+                                <div id="test" class="home_btns m-top-10" style="display: none">
+
+                                </div>
+
+                                <div class="home_btns m-top-30" style="margin-left:5px;color: #fff">
+                                    <!--支付定制化开发 <a href="http://wpa.qq.com/msgrd?v=3&uin=1012139570&site=qq&menu=yes" target="_blank" style="color:#fff;text-decoration:underline">联系作者</a>-->
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="phone_one phone_attr1 text-center sm-m-top-50">
+                                    <div class="attr_deg">开源</div>
+                                    <div class="attr_rio text-uppercase">极简</div>
+                                    <div class="attr_sun text-uppercase text-white">完全免费</div>
+                                    <div class="attr_lon text-uppercase text-white">无需签约</div>
+                                    <img src="https://i.loli.net/2018/10/08/5bbaeffca47ec.png" alt="" />
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="scrooldown">
+                            <a href="#features"><i class="fa fa-chevron-down"></i></a>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!--Featured Section-->
+            <section id="features" class="features">
+                <div class="container">
+                    <div class="row">
+                        <div class="p-top-100">
+                            <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
+                                <div class="head_title text-center">
+                                    <h2>半自动化解决方案</h2>
+                                    <h5>完美解决个人在线收款支付接口难题</h5>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="features_item sm-m-top-30">
+                                    <div class="f_item_icon">
+                                        <img src="assets/images/icon1.png" width="75px">
+                                    </div>
+                                    <div class="f_item_text">
+                                        <h3>完全免费、稳定安全</h3>
+                                        <p>没有中间商赚差价！每笔交易金额实时直达您个人账户，
+                                           不再忍受第三方抽取手续费。市面上最稳定安全方案，不干涉监听任何支付数据，无视各种风控</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="features_item sm-m-top-30">
+                                    <div class="f_item_icon">
+                                        <img src="assets/images/icon2.png" width="75px">
+                                    </div>
+                                    <div class="f_item_text">
+                                        <h3>无需任何第三方SDK、挂机APP</h3>
+                                        <p>无需集成任何支付SDK代码，无需监听外挂，极简自定义开发。
+                                           支持任何业务逻辑回调，支持移动端支付</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="features_item sm-m-top-30">
+                                    <div class="f_item_icon">
+                                        <img src="assets/images/icon3.png" width="75px">
+                                    </div>
+                                    <div class="f_item_text">
+                                        <h3>无需签约</h3>
+                                        <p>营业执照？个体工商户？身份证？统统见鬼去吧！ 
+                                           一张二维收款码搞定收款。支付宝、微信、QQ、翼支付、云闪付、各种付任你选</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- End off row -->
+                </div><!-- End off container -->
+            </section><!-- End off Featured Section-->
+
+            <!--<section>
+                <div class="container">
+                    <div class="row">
+                        <div class="main_drag roomy-50">
+                            <div class="col-md-12">
+                                <div class="swiper-container">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide" style="background-image:url(https://i.loli.net/2018/10/08/5bbaeffc5d409.png)"></div>
+                                        <div class="swiper-slide" style="background-image:url(https://i.loli.net/2018/10/08/5bbaeffc84872.png)"></div>
+                                        <div class="swiper-slide" style="background-image:url(https://i.loli.net/2018/10/08/5bbaeffc8cb71.png)"></div>
+                                    </div>
+                                    &lt;!&ndash; If we need navigation buttons &ndash;&gt;
+                                    <div class="swiper-button-prev"></div>
+                                    <div class="swiper-button-next"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>-->
+
+            <!--screen short section-->
+
+            <section id="screen_area" class="screen_area">
+                <div class="container">
+                    <div class="row">
+                        <div class="main_screen">
+                            <div class="col-md-8 col-md-offset-2 col-sm-12">
+                                <div class="head_title text-center">
+                                    <h2>支付流程</h2>
+                                    <h5>The ePay process</h5>
+                                </div>
+                            </div>
+
+                            <!-- Screen01-->
+                            <div class="screen01 roomy-50">
+                                <div class="col-md-6">
+                                    <div class="screen01_img text-center">
+                                        <div class="attr_cloudy text-white">通知方式</div>
+                                        <div class="attr_deg2 text-white">确认订单</div>
+                                        <img src="https://i.loli.net/2018/10/08/5bbaeffca2555.png" alt="" />
+                                        <h1 class="cloudy">Order</h1>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="screen01_content m-top-100">
+                                        <div class="screen01_content_img ">
+                                            <img src="assets/images/order.png" width="80" alt="" />
+                                        </div>
+                                        <h2 class="m-top-40">填写确认订单</h2>
+                                        <p class="m-top-20">用户确认购买订单后，需填写邮箱或手机号，发送邮件或短信支付结果通知，
+                                            以便及时告知用户支付结果 
+                                        </p>
+
+                                        <ul class="list-inline m-top-50">
+                                            <li class="text-center">邮件</li>
+                                            <li class="text-center">短信</li>
+                                            <li class="text-center">IM</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div><!--End off Screen01-->
+
+                            <!-- Screen02-->
+                            <div class="screen02 roomy-50 m-top-100">
+                                <div class="col-md-6 col-md-push-6">
+                                    <div class="screen02_img text-center">
+                                        <div class="attr_sun2 text-white">任意收款码</div>
+                                        <div class="attr_deg3 text-white">支付</div>
+                                        <img src="https://i.loli.net/2018/10/08/5bbaeffcb1146.png" alt="" />
+                                        <h1 class="sunny">&nbsp;Pay&nbsp;&nbsp;</h1>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-md-pull-6">
+                                    <div class="screen02_content m-top-100">
+                                        <div class="screen02_content_img ">
+                                            <img src="assets/images/pay.png" width="80" alt="" />
+                                        </div>
+                                        <h2 class="m-top-40">扫码支付</h2>
+                                        <p class="m-top-20">配置个人的各渠道收款二维码，
+                                            支付即时到账</p>
+
+                                        <ul class="list-inline m-top-50">
+                                            <li class="text-center">个人</li>
+                                            <li class="text-center">任意</li>
+                                            <li class="text-center">收款码</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div><!--End off Screen02-->
+
+                            <!-- Screen03-->
+                            <div class="screen03 roomy-50 m-top-100">
+                                <div class="col-md-6">
+                                    <div class="screen03_img text-center">
+                                        <div class="attr_rainy2 text-white">即时通知</div>
+                                        <div class="attr_deg4 text-white">邮件审核</div>
+                                        <img src="https://i.loli.net/2018/10/08/5bbaeffcb4928.png" alt="" />
+                                        <h1 class="rainy">Check</h1>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="screen03_content m-top-100">
+                                        <div class="screen03_content_img ">
+                                            <img src="assets/images/confirm.png" width="80" alt="" />
+                                        </div>
+                                        <h2 class="m-top-40">审核确认</h2>
+                                        <p class="m-top-20">个人管理员收到支付审核通知邮件，确认收款到账，
+                                            邮件中进行支付结果审核操作</p>
+
+                                        <ul class="list-inline m-top-50">
+                                            <li class="text-center">通知</li>
+                                            <li class="text-center">邮件</li>
+                                            <li class="text-center">审核</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div><!--End off Screen02-->
+
+
+                        </div>
+                    </div><!--End off row-->
+                </div><!--End off container-->
+            </section><!--End off Screen01 Area Section -->
+
+
+
+            <!--People Section-->
+            <section id="reviews" class="reviews m-top-100">
+                <div class="container">
+                    <div class="row">
+                        <div class="main_reviews">
+                            <div class="col-md-8 col-md-offset-2 col-sm-12">
+                                <div class="head_title text-center">
+                                    <h2>用户评价</h2>
+                                    <h5>Reviews</h5>
+                                </div>
+                            </div>
+
+                            <div class="reviews_content">
+                                <div class="col-md-6">
+                                    <div class="reviews_item m-top-40">
+                                        <div class="reviews_item_icon pull-left">“</div>
+                                        <h3>以后我的收到捐赠的不用手动去维护捐赠表啦，哈哈，感谢. </h3>
+                                        <div class="reviews_item_icon1 pull-right text-right">“</div>
+                                    </div>
+                                </div><!-- End off col-md-6 -->
+
+                                <div class="col-md-6">
+                                    <div class="reviews_item m-top-40">
+                                        <div class="reviews_item_icon pull-left">“</div>
+                                        <h3>虽然不能商用，但想法很好，适合个人收款不多的使用.</h3>
+                                        <div class="reviews_item_icon1 pull-right text-right">“</div>
+                                    </div>
+                                </div><!-- End off col-md-6 -->
+                                <div class="col-md-6">
+                                    <div class="reviews_item m-top-40">
+                                        <div class="reviews_item_icon pull-left">“</div>
+                                        <h3>正愁个人某宝上都买不到营业执照，找不到靠谱的第三方聚合支付，这确实是一个不错的方案.</h3>
+                                        <div class="reviews_item_icon1 pull-right text-right">“</div>
+                                    </div>
+                                </div><!-- End off col-md-6 -->
+                                <div class="col-md-6">
+                                    <div class="reviews_item m-top-40">
+                                        <div class="reviews_item_icon pull-left">“</div>
+                                        <h3>正好我做的是灰色产业，申请不到支付接口，感谢作者的ePay. </h3>
+                                        <div class="reviews_item_icon1 pull-right text-right">“</div>
+                                    </div>
+                                </div><!-- End off col-md-6 -->
+
+                            </div>
+                        </div><!-- End off Main People -->
+                    </div><!-- End off row -->
+                </div><!-- End off container -->
+            </section><!-- End off People Section-->
+
+
+            <!--App Download Section-->
+            <section id="download" class="download m-top-100">
+                <div class="download_overlay"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="main_download ">
+                            <div class="col-md-6">
+                                <div class="download_item roomy-100">
+                                    <h2 class="text-white">如何开发使用ePay?</h2>
+                                    <h5 class="text-white m-top-20">ePay是完全免费的个人收款支付系统，
+                                        为个人提供了完美的支付解决方案.
+                                        系统方案及本网站源码v1.0版本已公开，有详细的教程和源码参考，
+                                        详情点击下方链接查看获取源码.</h5>
+                                    <div class="download_app m-top-30">
+                                        <a href="/pay" target="_self"><img src="assets/images/appstor.png" alt="" /></a>
+                                        <a href="/pay"  target="_self"><img src="assets/images/googleplay.png" alt="" /></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="download_item m-top-70">
+                                    <img class="app_right" src="assets/images/appdownload1.png" alt="" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- scroll up-->
+            <div class="scrollup">
+                <a href="#"><i class="fa fa-chevron-up"></i></a>
+            </div><!-- End off scroll up -->
+            
+            
+            <div th:include="footer"/>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="title">最新v1.0版本发布</h4>
+                        </div>
+                        <div class="modal-body" id="body">
+                            <p style="text-align: center;">
+                                打开手机扫一扫立即体验吧！
+                            </p>
+                            <img src="assets/images/mobiletest.png" width="200px;" style="display: block;margin: 0 auto;" class="qr-red"/>
+                            <p style="text-align: center;font-size: 12px">
+                                注：一键打开支付宝目前仅支持当面付、红包和扫码点单方式
+                            </p>
+                            <p style="text-align: start;margin-left: 20px;">
+                                v1.0 新增支付宝当面付 官方接口 自动回调 提供个人申请教程<br>
+                                v0.4 支付宝新增扫码点单收款，暂无风控，支持一键打开支付宝APP<br>
+                                v0.3 支付宝新增一键加好友发红包支付模式<br>
+                                v0.2 新增云闪付收款（收款直达银行卡）<br>
+                                v0.1 支付宝新增多种支付方式(含银行转账)<br>
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button data-dismiss="modal" class="btn btn-warning" type="button">知道了</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var ua = window.navigator.userAgent.toLowerCase();
+            // 判断是否微信浏览器
+            function isWeixin() {
+                if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+                    return 1;
+                }
+                return 0;
+            }
+
+            // 判断是否安卓QQ浏览器
+            function isQQAndroid() {
+                if (ua.match(/QQ/i) == 'qq'&&ua.match(/Android/i) == 'android') {
+                    return 1;
+                }
+                return 0;
+            }
+
+            // 判断是否支付宝app
+            function isAlipay() {
+                if((ua.indexOf('alipay') > -1 && ua.indexOf('aliapp') > -1)){
+                    return 1;
+                }
+                return 0;
+            }
+
+            openAliApp();
+            function openAliApp() {
+
+                if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+                    // 判断移动端
+                    $("#mobile").css("display","inline-block");
+                    // 如果是安卓手机QQ或微信 不支持
+                    if(isQQAndroid()||isWeixin()){
+                        return;
+                    }
+                    // 支付宝app内
+                    if(isAlipay()){
+                        $("#test").css("display","block");
+                        $("#test").append("<a href='alipays://platformapi/startapp?appId=20000067&url="+encodeURIComponent("http://5epay.cn/openAlipay?money=10.00&num=测试")+"' target='_blank' class='btn btn-danger m-top-20'>测试一键打开支付宝APP支付</a>");
+                    }
+                }else{
+                    $("#pc").css("display","inline-block");
+                    $("#myModal").modal('show');
+                }
+            }
+
+            $("[data-toggle='popover']").popover();
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,58 @@
+<div th:fragment="nav">
+    <nav class="navbar navbar-default bootsnav navbar-fixed white no-background">
+        <div class="container">
+            <!-- Start Atribute Navigation -->
+            <div class="attr-nav">
+                <ul>
+                    <li><a href="https://itmaker.vip/epay" target="_blank" title="作者博客"><i class="fa fa-github" style="font-size:21px"></i></a></li>
+                    <li>
+                        <a>
+                            <i class="fa fa-qrcode" style="font-size:19px"  data-container="body" data-toggle="popover" data-placement="bottom"
+                               data-html="true" data-content="<img src='assets/images/qq-qr.png' width='200'>" data-trigger="hover">
+                            </i>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1780764194&amp;site=qq&amp;menu=yes">
+                            <img border="0" src="assets/images/counseling_style_52.png" alt="点击这里给我发消息" title="点击这里给我发消息">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/index" style="margin-top: -30px;display: none;">
+                    <img src="assets/images/logo.png" class="logo logo-display"  width="100px" height="100px" >
+                    <img src="assets/images/logo.png" class="logo logo-scrolled" width="100px" height="100px">
+                </a>
+            </div>
+
+            <!-- navbar menu -->
+            <div class="collapse navbar-collapse" id="navbar-menu">
+                <ul class="nav navbar-nav navbar-center">
+                    <li><a href="index">首页</a></li>
+                    <li><a href="pay">获取源码</a></li>
+                    <li><a href="thanks">捐赠名单</a></li>
+                    <!--<li><a href="#" target="_blank">jeeWx商城</a></li>
+                    <li><a href="#" target="_blank">jeeBoot开发平台</a></li>-->
+                    <li><a href="https://www.itmaker.vip/epay" target="_blank">开发教程</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <script type="application/javascript">
+        $(function () {
+            // 判断移动设备
+            function isMobile() {
+                if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+                    return 1;
+                }
+                return 0;
+            }
+
+            if(!isMobile()){
+                $(".navbar-brand").css('display','block');
+            }
+        })
+    </script>
+</div>

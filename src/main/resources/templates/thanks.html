@@ -1,0 +1,306 @@
+<!doctype html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<div th:include="header"/>
+<link rel="stylesheet" href="assets/css/thanks.css"/>
+<body data-spy="scroll" data-target=".navbar-collapse" style="background:#f1f2f7">
+<div class="culmn">
+    <div th:include="nav"/>
+    <section id="features" class="features" style="font-size: 13px">
+        <div class="container">
+            <div class="row">
+                <div class="main_features p-top-100">
+                    <section class="panel" style="">
+                        <header class="panel-heading tab-bg-white">
+                            <ul class="nav nav-tabs">
+                                <li class="active" id="about-li">
+                                    <a data-toggle="tab" href="#about-2">
+                                        <i class="fa fa-heart" aria-hidden="true"></i>
+                                        捐赠成功名单
+                                    </a>
+                                </li>
+                                <li class="" id="contact-li">
+                                    <a data-toggle="tab" href="#contact-2">
+                                        <i class="fa fa-meh-o" aria-hidden="true"></i>
+                                        支付失败名单
+                                    </a>
+                                </li>
+                                <li class="" id="check-li">
+                                    <a data-toggle="tab" href="#check-2">
+                                        <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                                        系统审核中
+                                    </a>
+                                </li>
+                            </ul>
+                        </header>
+                        <div class="panel-body">
+                            <div class="tab-content">
+                                <div id="about-2" class="tab-pane active">
+                                    <div class="adv-table">
+                                        <div class="clearfix">
+                                            <div class="thank">
+                                                佛祖保佑这些好心人写程序永无BUG，工资翻倍，长命百岁，迎娶白富美，走上人生巅峰！<br>
+                                                若支付后长时间未收到邮件请到垃圾邮件中查找或点击右侧反馈按钮进行反馈
+                                            </div>
+                                        </div>
+                                        <div class="clearfix">
+                                            <div class="btn-group pull-right">
+                                                <button class="btn btn-info" onclick="refresh1()"><i
+                                                        class="fa fa-refresh" aria-hidden="false"></i>&nbsp;&nbsp;刷 新
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="space15"></div>
+                                        <table cellpadding="0" cellspacing="0" border="0"
+                                               class="display table table-bordered" id="table1" width="100%">
+                                            <thead>
+                                            <tr>
+                                                <th width="20%">昵称</th>
+                                                <th width="10%">捐赠方式</th>
+                                                <th width="20%">捐赠金额(￥)</th>
+                                                <th width="20%">捐赠人留言</th>
+                                                <th width="10%">状态</th>
+                                                <th width="20%">捐赠时间</th>
+                                            </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div id="contact-2" class="tab-pane ">
+                                    <div class="adv-table">
+                                        <div class="thank">
+                                            以下数据系统将于每日凌晨自动清除
+                                        </div>
+                                        <div class="clearfix">
+                                            <div class="btn-group pull-right">
+                                                <button class="btn btn-info" onclick="refresh2()"><i
+                                                        class="fa fa-refresh" aria-hidden="false"></i>&nbsp;&nbsp;刷 新
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="space15"></div>
+                                        <table cellpadding="0" cellspacing="0" border="0"
+                                               class="display table table-bordered" id="table2" width="100%">
+                                            <thead>
+                                            <tr>
+                                                <th width="20%">昵称</th>
+                                                <th width="10%">支付方式</th>
+                                                <th width="20%">支付金额(￥)</th>
+                                                <th width="20%">留言</th>
+                                                <th width="10%">状态</th>
+                                                <th width="20%">订单创建时间</th>
+                                            </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div id="check-2" class="tab-pane ">
+                                    <div class="adv-table">
+                                        <div class="thank">
+                                            若支付后长时间未收到邮件请到垃圾邮件中查找或点击右上角QQ联系作者
+                                        </div>
+                                        <div class="clearfix">
+                                            <div class="btn-group pull-right">
+                                                <button class="btn btn-info" onclick="refresh3()"><i
+                                                        class="fa fa-refresh" aria-hidden="false"></i>&nbsp;&nbsp;刷 新
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="space15"></div>
+                                        <table cellpadding="0" cellspacing="0" border="0"
+                                               class="display table table-bordered" id="table3" width="100%">
+                                            <thead>
+                                            <tr>
+                                                <th width="20%">昵称</th>
+                                                <th width="10%">支付方式</th>
+                                                <th width="20%">支付金额(￥)</th>
+                                                <th width="20%">留言</th>
+                                                <th width="10%">状态</th>
+                                                <th width="20%">订单创建时间</th>
+                                            </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div th:include="footer"/>
+</div>
+
+</body>
+<script type="text/javascript">
+    $("[data-toggle='popover']").popover();
+
+    $(document).ready(function () {
+        initTable1();
+        initTable2();
+        initTable3();
+    });
+
+    function initTable1() {
+        $('#table1').dataTable({
+            "retrieve": true, //重新实例化
+            "serverSide": true,//开启服务器模式
+            "processing": true,   // 加载显示提示
+            "destroy": true,
+            "ajax": {
+                url: "/thanks/list",
+                type: 'GET'
+            },
+            "columns": [
+                {"data": "nickName"},
+                {"data": "payType"},
+                {"data": "money"},
+                {"data": "info"},
+                {
+                    "data": null,
+                    render: function (data, type, row, meta) {
+                        return "<div style='text-align: center'><span class=\"label label-success label-mini\">支付成功</span></div>";
+                    }
+                },
+                {
+                    "data": "createTime",
+                    render: function (data, type, row, meta) {
+                        return dateToMin(data);
+                    }
+                }
+            ],
+            "aoColumnDefs": [
+                {"bSortable": false, "aTargets": [2, 4]} //制定列不参与排序
+            ],
+            "pageLength": 10, // 默认显示数量
+            "lengthMenu": [5, 10, 25], // 页面大小选择
+            "info": false, //关闭左下角
+            "pagingType": "full_numbers",
+            "language": {
+                url: 'assets/css/fonts/Chinese.json'
+            }
+        });
+    }
+
+    function initTable2() {
+        $('#table2').dataTable({
+            "retrieve": true,
+            "serverSide": true,//开启服务器模式
+            "processing": true,   // 加载显示提示
+            "destroy": true,
+            "ajax": {
+                url: "/pay/list",
+                type: 'GET'
+            },
+            "columns": [
+                {"data": "nickName"},
+                {"data": "payType"},
+                {"data": "money"},
+                {"data": "info"},
+                {
+                    "data": null,
+                    render: function (data, type, row, meta) {
+                        return "<div style='text-align: center'><span class=\"label label-danger label-mini\">支付失败</span></div>";
+                    }
+                },
+                {
+                    "data": "createTime",
+                    render: function (data, type, row, meta) {
+                        return dateToMin(data);
+                    }
+                }
+            ],
+            "aoColumnDefs": [
+                {"bSortable": false, "aTargets": []} //制定列不参与排序
+            ],
+            "pageLength": 10, // 默认显示数量
+            "lengthMenu": [5, 10, 25, 50], // 页面大小选择
+            "language": {
+                url: 'assets/css/fonts/Chinese.json'
+            }
+        });
+    }
+
+    function initTable3() {
+        $('#table3').dataTable({
+            "retrieve": true,
+            "serverSide": true,//开启服务器模式
+            "processing": true,   // 加载显示提示
+            "destroy": true,
+            "ajax": {
+                url: "/pay/check/list",
+                type: 'GET'
+            },
+            "columns": [
+                {"data": "nickName"},
+                {"data": "payType"},
+                {"data": "money"},
+                {"data": "info"},
+                {
+                    "data": null,
+                    render: function (data, type, row, meta) {
+                        return "<div style='text-align: center'><span class=\"label label-warning label-mini\">审核中</span></div>";
+                    }
+                },
+                {
+                    "data": "createTime",
+                    render: function (data, type, row, meta) {
+                        return dateToMin(data);
+                    }
+                }
+            ],
+            "aoColumnDefs": [
+                {"bSortable": false, "aTargets": []} //制定列不参与排序
+            ],
+            "pageLength": 10, // 默认显示数量
+            "lengthMenu": [5, 10, 25, 50], // 页面大小选择
+            "language": {
+                url: 'assets/css/fonts/Chinese.json'
+            }
+        });
+    }
+
+    /*刷新表格*/
+    function refresh1() {
+        var table = $('#table1').DataTable();
+        table.ajax.reload(null, false);// 刷新表格数据，分页信息不会重置
+    }
+
+    function refresh2() {
+        var table = $('#table2').DataTable();
+        table.ajax.reload(null, false);// 刷新表格数据，分页信息不会重置
+    }
+
+    function refresh3() {
+        var table = $('#table3').DataTable();
+        table.ajax.reload(null, false);// 刷新表格数据，分页信息不会重置
+    }
+
+    /*时间转换 精确到分 yyyy-MM-dd HH:mm*/
+    function dateToMin(data) {
+        if (data == null || data == "") {
+            return "";
+        }
+        var time = new Date(data);
+        var y = time.getFullYear();//年
+        var m = time.getMonth() + 1;//月
+        if (m >= 0 && m <= 9) {
+            m = "0" + m;
+        }
+        var d = time.getDate();//日
+        if (d >= 0 && d <= 9) {
+            d = "0" + d;
+        }
+        var h = time.getHours();//时
+        if (h >= 0 && h <= 9) {
+            h = "0" + h;
+        }
+        var mm = time.getMinutes();//分
+        if (mm >= 0 && mm <= 9) {
+            mm = "0" + mm;
+        }
+        return (y + "-" + m + "-" + d + " " + h + ":" + mm);
+    }
+
+</script>
+</html>

@@ -1,0 +1,67 @@
+<!doctype html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<div th:include="header" />
+<link rel="stylesheet" href="assets/css/pay.css">
+<style>
+    p{
+        margin-bottom: 10px;
+    }
+</style>
+    <body data-spy="scroll" data-target=".navbar-collapse" style="background:#f1f2f7">
+        <div class="culmn">
+            <!--Home page style-->
+            <div th:include="nav"/>
+            <!--Featured Section-->
+            <section id="features" class="features">
+                <div class="container">
+                    <div class="row">
+                        <div class="main_features p-top-100">
+                            
+                            <div class="gray-box">
+                                <div class="title">
+                                  <h2>支付成功</h2>
+                                </div>
+                                <!--内容-->
+                                <div>
+                                    <div class="content" style="min-height:30vw">
+                                        <p class=""><i class="fa fa-check-circle icon-success" aria-hidden="true"></i>&nbsp;&nbsp;恭喜您支付成功，请等待5-30分钟系统确认</p>
+                                        <p style="margin-bottom: 50px;">总共花费 <span class="myprice" id="money"></span> 元</p>
+                                        <input type="text" class="main-btn mybtn" value="查看结果" onclick="submit1()" readonly>
+                                        <input type="text" class="main-btn mybtn" value="继续支付" onclick="submit2()" readonly>
+                                    </div>
+                                </div>
+                                  
+                              </div>
+
+                        </div>
+                    </div><!-- End off row -->
+                </div><!-- End off container -->
+            </section><!-- End off Featured Section-->
+
+            <!-- scroll up-->
+            <div class="scrollup">
+                <a href="#"><i class="fa fa-chevron-up"></i></a>
+            </div>
+
+            <div th:include="footer" />
+        </div>
+    </body>
+    <script>
+        $("[data-toggle='popover']").popover();
+
+        var money=$.cookie('money');
+        if(money==""||money==null){
+            window.location.href="/";
+        }
+        $("#money").html("￥"+money);
+
+        function submit1(){
+            window.location.href="/thanks";
+        }
+
+        function submit2(){
+            window.location.href="/pay";
+        }
+       
+    </script>
+</html>

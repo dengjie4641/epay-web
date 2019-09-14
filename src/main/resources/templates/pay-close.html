@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>支付订单编辑</title>
+    <meta name="description" content="ePay个人收款支付系统 无需签约 无需第三方SDK 完全免费">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mui/3.7.1/css/mui.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/mui.picker.min.css" />
+    <style>
+        .mui-card-header>img:first-child {
+            font-size: 0;
+            line-height: 0;
+            float: left;
+            width: 34px;
+            height: 30px;
+            width: 166px;
+            margin: auto;
+        }
+
+        .mui-btn-my {
+            color: #fff;
+            border: 1px solid #007aff;
+            background-color: #007aff;
+            width: 90%;
+        }
+
+        .fake {
+            padding: 8px 15px 0 15px;
+            height: 45px;
+            font-size: 15px;
+            color: #7e7777;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+<form class="mui-input-group">
+    <div class="mui-card-header">
+        <img src="https://i.loli.net/2018/10/08/5bbaf3af87091.png">
+    </div>
+    <div class="mui-input-row">
+        <label>总开关</label>
+        <div id="all" class="mui-switch">
+            <div class="mui-switch-handle"></div>
+        </div>
+    </div>
+    <div id="ar">
+        <textarea id="allReason" rows="5" placeholder="总关闭原因"></textarea>
+    </div>
+    <div class="mui-input-row">
+        <label>当面付开关</label>
+        <div id="dmf" class="mui-switch">
+            <div class="mui-switch-handle"></div>
+        </div>
+    </div>
+    <div id="dr">
+        <textarea id="dmfReason" rows="5" placeholder="当面付关闭原因"></textarea>
+    </div>
+    <div class="mui-button-row">
+        <button type="button" class="mui-btn mui-btn-my" onclick="onSubmit()">确认提交</button>
+    </div>
+</form>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mui/3.7.1/js/mui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+
+    //获取url中的参数
+    function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r != null) return unescape(r[2]); return null; //返回参数值
+    }
+
+    var id=getUrlParam('id');
+    var token=getUrlParam('token');
+    var all = false, dmf = false;
+    $.get('/pay/currStatus',
+        {
+            id: id,
+            token: token
+        },
+        function (data, status) {
+            if(data.success==true){
+                $("#allReason").val(data.result.allReason);
+                $("#dmfReason").val(data.result.dmfReason);
+                if(data.result.all){
+                    all = true;
+                    $("#all").addClass("mui-active");
+                    $("#ar").css('display','none');
+                }
+                if(data.result.dmf){
+                    dmf = true;
+                    $("#dmf").addClass("mui-active");
+                    $("#dr").css('display','none');
+                }
+            }else{
+                message(data.message);
+            }
+        }
+    );
+
+    document.getElementById("all").addEventListener("toggle",function(event){
+        if(event.detail.isActive){
+            all = true;
+            $("#ar").css('display','none');
+        }else{
+            all = false;
+            $("#ar").css('display','block');
+        }
+    });
+
+    document.getElementById("dmf").addEventListener("toggle",function(event){
+        if(event.detail.isActive){
+            dmf = true;
+            $("#dr").css('display','none');
+        }else{
+            dmf = false;
+            $("#dr").css('display','block');
+        }
+    })
+
+    function onSubmit() {
+        $.post('/pay/closeOrOpen',
+            {
+                id: id,
+                token: token,
+                all: all,
+                dmf: dmf,
+                allReason: $("#allReason").val(),
+                dmfReason: $("#dmfReason").val()
+            },
+            function (data, status) {
+                if (data.success == true) {
+                    mui.alert('操作成功', null, null, function(e) {
+                        window.location.reload();
+                    });
+                } else {
+                    message(data.message);
+                }
+            });
+    }
+
+    function message(m){
+        mui.toast(m,{ duration:'long', type:'div' })
+    }
+</script>
+</html>
